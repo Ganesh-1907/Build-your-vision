@@ -100,9 +100,9 @@ const WhyUs = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-white pt-20 text-slate-900 dark:bg-[#0b0f0f] dark:text-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -116,7 +116,7 @@ const WhyUs = () => {
       </section>
 
       {/* Main Reasons */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {mainReasons.map((reason, index) => (
@@ -148,7 +148,7 @@ const WhyUs = () => {
       </section>
 
       {/* Additional Benefits */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             More Reasons to Work With Us
@@ -175,7 +175,7 @@ const WhyUs = () => {
       </section>
 
       {/* Us vs Them Comparison */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             Us vs. The Rest
@@ -213,19 +213,19 @@ const WhyUs = () => {
       </section>
 
       {/* Testimonial Quote */}
-      <section className="py-20 bg-gradient-to-br from-emerald-500/10 to-emerald-600/5">
+      <section className="bg-transparent py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <blockquote className="text-2xl md:text-3xl font-medium text-white mb-6">
+          <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mb-6">
             "Finally, a development team that says what they'll do and actually does it. No drama, no excuses, just results."
           </blockquote>
-          <cite className="text-lg text-gray-400">
+          <cite className="text-lg text-gray-600 dark:text-gray-400">
             — Rajesh Kumar, CEO at TechStart Solutions
           </cite>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Work With a Team That Gets It?

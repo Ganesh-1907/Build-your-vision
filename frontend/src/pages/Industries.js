@@ -69,9 +69,9 @@ const Industries = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-white pt-20 text-slate-900 dark:bg-[#0b0f0f] dark:text-white">
       {/* Hero Section */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -85,7 +85,7 @@ const Industries = () => {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
@@ -127,7 +127,7 @@ const Industries = () => {
       </section>
 
       {/* Industry Expertise Section */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
@@ -175,7 +175,7 @@ const Industries = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black dark:bg-gray-950">
+      <section className="bg-transparent py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Don't See Your Industry?

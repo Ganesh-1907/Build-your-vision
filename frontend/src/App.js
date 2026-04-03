@@ -16,7 +16,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="min-h-screen bg-white text-slate-900 dark:bg-[#0b0f0f] dark:text-white transition-colors duration-300">
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />

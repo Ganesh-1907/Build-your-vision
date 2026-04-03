@@ -3,18 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Code2, Smartphone, Database, Cloud, Zap, Shield, Users, TrendingUp, MessageSquare } from 'lucide-react';
 
 const Home = () => {
-  const stats = [
-    { label: 'Projects Completed', value: '70+' },
-    { label: 'Client Satisfaction', value: '98%' },
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Team Members', value: '15+' },
-  ];
-
-  const techStack = [
-    'Laravel 12', 'React', 'Vue.js', 'Flutter', 'PHP 8.3', 
-    'PostgreSQL', 'Redis', 'AWS', 'Docker', 'Tailwind CSS'
-  ];
-
   const services = [
     {
       icon: Smartphone,
@@ -101,77 +89,45 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-black">
-        <div className="w-full px-8 md:px-16 lg:px-24 py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
-            {/* Left - Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1551650975-87deedd944c3" 
-                  alt="Digital Solutions"
-                  className="w-full h-[500px] lg:h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 left-8 right-8 bg-gray-900 border border-gray-800 rounded-xl p-6 backdrop-blur-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-emerald-400 font-semibold text-lg">Available for Projects</p>
-                    <p className="text-gray-400 text-sm">Let's build something amazing</p>
-                  </div>
-                  <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+      <header className="relative overflow-hidden">
+        <div className="relative min-h-screen">
+          <div className="relative z-10 flex min-h-screen items-center">
+            <div className="diagonal-split flex w-full items-center bg-[#06b77f] px-6 pb-20 pt-32 md:min-h-screen md:w-[63%] md:px-16 lg:px-20 md:pb-24 md:pt-36">
+              <div className="max-w-2xl">
+                <h1 className="font-headline mb-6 text-5xl font-extrabold leading-[1.02] tracking-tight text-white md:text-7xl">
+                  GROW YOUR BUSINESS WITH US
+                </h1>
+                <p className="mb-10 max-w-xl text-lg leading-relaxed text-[#d9fff0] md:text-xl">
+                  Transform your vision into reality with custom software development. We specialize in building scalable web applications, mobile apps, and enterprise solutions that deliver measurable results. From MVP to market leader, we&apos;re your technology partner at every stage of growth.
+                </p>
+                <div className="flex flex-wrap items-center gap-6">
+                  <Link
+                    to="/contact"
+                    className="font-headline rounded-xl bg-black px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105"
+                  >
+                    GET STARTED
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="group font-headline inline-flex items-center gap-2 text-lg font-bold text-white"
+                  >
+                    Learn More
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>
-
-            {/* Right - Content */}
-            <div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                We Build Digital{' '}
-                <span className="text-emerald-400">Solutions</span>{' '}
-                That Drive Business Growth
-              </h1>
-              
-              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                Transform your vision into reality with custom software development. We specialize in building scalable web applications, mobile apps, and enterprise solutions that deliver measurable results. From MVP to market leader, we're your technology partner at every stage of growth.
-              </p>
-
-              <p className="text-base text-gray-500 mb-10 leading-relaxed">
-                Our team combines technical expertise with business acumen to create solutions that don't just work—they excel. We handle everything from architecture design to deployment, ensuring your product is built right the first time.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  Start Your Project
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-                <Link
-                  to="/work"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-all duration-300"
-                >
-                  View Our Work
-                </Link>
-              </div>
-            </div>
           </div>
 
-          {/* Stats Row Below Hero */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-gray-800">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold text-emerald-400 mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+          <div className="relative h-[320px] w-full overflow-hidden md:absolute md:inset-y-0 md:left-[47%] md:h-full md:w-auto md:right-0">
+            <img
+              className="h-full w-full object-cover object-center"
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80"
+              alt="Project manager presenting requirements to a team during a meeting"
+            />
           </div>
         </div>
-      </section>
+      </header>
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-black dark:bg-gray-950">

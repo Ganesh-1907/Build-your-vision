@@ -172,3 +172,17 @@ img {
 .animate-scroll-indicator {
     animation: scroll-indicator 2s ease-in-out infinite;
 }
+
+.font-headline {
+    font-family: 'Manrope', 'Inter', sans-serif;
+}
+
+.diagonal-split {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+@media (max-width: 768px) {
+    .diagonal-split {
+        clip-path: none;
+    }
+}

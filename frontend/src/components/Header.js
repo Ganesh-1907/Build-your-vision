@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -7,8 +7,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
-  const { themeMode, setTheme } = useTheme();
   const location = useLocation();
+  const { themeMode, setTheme } = useTheme();
+  const themeMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,22 @@ const Header = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsThemeMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target)) {
+        setIsThemeMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const navLinks = [
@@ -28,137 +45,148 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
   const themeOptions = [
-    { mode: 'light', icon: Sun, label: 'Light' },
-    { mode: 'dark', icon: Moon, label: 'Dark' },
-    { mode: 'system', icon: Monitor, label: 'System' },
+    { value: 'light', label: 'Light', icon: Sun },
+    { value: 'dark', label: 'Dark', icon: Moon },
+    { value: 'system', label: 'System', icon: Monitor },
   ];
 
-  const CurrentThemeIcon = themeOptions.find(opt => opt.mode === themeMode)?.icon || Monitor;
+  const ActiveThemeIcon = themeOptions.find((option) => option.value === themeMode)?.icon || Monitor;
+  const isHomePage = location.pathname === '/';
+  const headerBackgroundClass = isScrolled || !isHomePage
+    ? 'bg-neutral-950/90 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.08)]'
+    : 'bg-transparent';
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 dark:bg-black/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">BYV</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-gray-900 dark:text-white">Build Your Vision</span>
-            </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBackgroundClass}`}>
+      <div className="max-w-full px-6 md:px-10">
+        <div className="flex items-center justify-between py-5">
+          <Link to="/" className="flex items-center gap-3 text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400 font-headline text-2xl font-black tracking-tighter text-white uppercase">
+              BYV
+            </span>
+            <span className="font-headline text-2xl font-bold tracking-tight text-white">
+              Build Your Vision
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-emerald-500 ${
-                  location.pathname === link.path
-                    ? 'text-emerald-500'
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-2 rounded-full bg-black/20 px-3 py-2 backdrop-blur-md xl:gap-3">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`font-headline rounded-full px-3 py-2 text-sm font-bold tracking-tight transition-all duration-300 ${
+                    isActive
+                      ? 'bg-emerald-300 text-black shadow-[0_10px_25px_-10px_rgba(110,231,183,0.9)]'
+                      : 'text-white hover:bg-white/10 hover:text-emerald-100'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center space-x-4">
-            {/* Theme Switcher */}
-            <div className="relative">
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="relative" ref={themeMenuRef}>
               <button
-                onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-                aria-label="Toggle theme"
+                onClick={() => setIsThemeMenuOpen((open) => !open)}
+                className="rounded-xl bg-slate-700/60 p-3 text-white transition-all duration-300 hover:bg-slate-600"
+                aria-label="Change theme"
               >
-                <CurrentThemeIcon className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                <ActiveThemeIcon className="h-5 w-5" />
               </button>
-              
+
               {isThemeMenuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 py-1">
-                  {themeOptions.map(({ mode, icon: Icon, label }) => (
-                    <button
-                      key={mode}
-                      onClick={() => {
-                        setTheme(mode);
-                        setIsThemeMenuOpen(false);
-                      }}
-                      className={`w-full flex items-center space-x-3 px-4 py-2 text-sm transition-colors duration-200 ${
-                        themeMode === mode
-                          ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                      <span>{label}</span>
-                    </button>
-                  ))}
+                <div className="absolute right-0 mt-3 w-40 rounded-2xl border border-neutral-800 bg-neutral-950 p-2 shadow-2xl">
+                  {themeOptions.map((option) => {
+                    const OptionIcon = option.icon;
+                    const isSelected = themeMode === option.value;
+
+                    return (
+                      <button
+                        key={option.value}
+                        onClick={() => {
+                          setTheme(option.value);
+                          setIsThemeMenuOpen(false);
+                        }}
+                        className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left font-headline text-sm font-bold transition-colors ${
+                          isSelected
+                            ? 'bg-emerald-400/15 text-emerald-300'
+                            : 'text-neutral-300 hover:bg-neutral-900 hover:text-white'
+                        }`}
+                      >
+                        <OptionIcon className="h-4 w-4" />
+                        {option.label}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
-            {/* CTA Button */}
             <Link
               to="/contact"
-              className="hidden lg:inline-flex px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              className="font-headline rounded-xl bg-emerald-300 px-6 py-2.5 font-bold text-black transition-all duration-300 hover:scale-105"
             >
-              Start Your Project
+              Start Project
             </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-              )}
-            </button>
           </div>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden rounded-lg bg-neutral-900 p-2 text-white transition-colors hover:bg-neutral-800"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="border-t border-neutral-800 py-4 lg:hidden">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-base font-medium transition-colors duration-300 hover:text-emerald-500 ${
-                    location.pathname === link.path
-                      ? 'text-emerald-500'
-                      : 'text-gray-700 dark:text-gray-300'
+                  className={`font-headline text-base font-bold transition-colors ${
+                    location.pathname === link.path ? 'text-emerald-400' : 'text-neutral-300 hover:text-white'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
+              <div className="grid grid-cols-3 gap-2 rounded-xl bg-neutral-900 p-2">
+                {themeOptions.map((option) => {
+                  const OptionIcon = option.icon;
+                  const isSelected = themeMode === option.value;
+
+                  return (
+                    <button
+                      key={option.value}
+                      onClick={() => setTheme(option.value)}
+                      className={`flex items-center justify-center gap-2 rounded-lg px-3 py-2 font-headline text-sm font-bold transition-colors ${
+                        isSelected
+                          ? 'bg-emerald-400 text-black'
+                          : 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
+                      }`}
+                    >
+                      <OptionIcon className="h-4 w-4" />
+                      {option.label}
+                    </button>
+                  );
+                })}
+              </div>
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="inline-flex justify-center px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all duration-300"
+                className="font-headline inline-flex justify-center rounded-xl bg-emerald-300 px-6 py-3 font-bold text-black"
               >
-                Start Your Project
+                Start Project
               </Link>
             </nav>
           </div>
