@@ -177,7 +177,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-white dark:bg-gray-900">
+      <section id="services" className="py-24 bg-black dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -225,7 +225,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gray-50 dark:bg-black">
+      <section className="py-24 bg-black dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -296,18 +296,18 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-emerald-500 to-emerald-700 dark:from-emerald-600 dark:to-emerald-900">
+      <section className="py-24 bg-gradient-to-br from-emerald-500/10 to-emerald-600/5 dark:from-emerald-600/10 dark:to-emerald-900/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Got a Project in Mind?
           </h2>
-          <p className="text-xl text-white/90 mb-10">
+          <p className="text-xl text-gray-400 mb-10">
             Let's have a proper chat about what you need. No sales pitch, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-emerald-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Start Your Project
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -316,7 +316,7 @@ const Home = () => {
               href="https://wa.me/917816087488"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-emerald-600 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-all duration-300"
             >
               Chat on WhatsApp
             </a>

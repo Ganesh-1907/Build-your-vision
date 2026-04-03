@@ -148,7 +148,7 @@ const WhyUs = () => {
       </section>
 
       {/* Additional Benefits */}
-      <section className="py-20 bg-gray-50 dark:bg-black">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             More Reasons to Work With Us
@@ -175,7 +175,7 @@ const WhyUs = () => {
       </section>
 
       {/* Us vs Them Comparison */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             Us vs. The Rest
@@ -213,19 +213,19 @@ const WhyUs = () => {
       </section>
 
       {/* Testimonial Quote */}
-      <section className="py-20 bg-gradient-to-br from-emerald-500 to-emerald-700 dark:from-emerald-600 dark:to-emerald-900">
+      <section className="py-20 bg-gradient-to-br from-emerald-500/10 to-emerald-600/5">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <blockquote className="text-2xl md:text-3xl font-medium text-white mb-6">
             "Finally, a development team that says what they'll do and actually does it. No drama, no excuses, just results."
           </blockquote>
-          <cite className="text-lg text-white/90">
+          <cite className="text-lg text-gray-400">
             — Rajesh Kumar, CEO at TechStart Solutions
           </cite>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gray-50 dark:bg-black">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Work With a Team That Gets It?

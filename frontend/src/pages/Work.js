@@ -78,7 +78,7 @@ const Work = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
@@ -110,7 +110,7 @@ const Work = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-24">
             {projects.map((project, index) => (
@@ -211,7 +211,7 @@ const Work = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50 dark:bg-black">
+      <section className="py-20 bg-black dark:bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Want Results Like These?
