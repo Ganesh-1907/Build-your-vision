@@ -99,106 +99,76 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section - Full Screen */}
-      <section className="relative h-screen w-full flex items-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072)',
-            }}
-          ></div>
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/80"></div>
-          
-          {/* Animated Grid Overlay */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)',
-              backgroundSize: '100px 100px',
-            }}></div>
-          </div>
-
-          {/* Gradient Accent */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent"></div>
-        </div>
-        
-        {/* Content - Full Width */}
-        <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7">
-              {/* Badge */}
-              <div className="inline-flex items-center px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-8">
-                <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-                <span className="text-emerald-400 text-xs font-medium tracking-wide uppercase">Available for New Projects</span>
+    <div className="min-h-screen bg-black">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center bg-black">
+        <div className="w-full px-8 md:px-16 lg:px-24 py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+            {/* Left - Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1551650975-87deedd944c3" 
+                  alt="Digital Solutions"
+                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
+              {/* Floating Badge */}
+              <div className="absolute -bottom-6 left-8 right-8 bg-gray-900 border border-gray-800 rounded-xl p-6 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-emerald-400 font-semibold text-lg">Available for Projects</p>
+                    <p className="text-gray-400 text-sm">Let's build something amazing</p>
+                  </div>
+                  <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                </div>
+              </div>
+            </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight">
+            {/* Right - Content */}
+            <div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                 We Build Digital{' '}
-                <span className="text-emerald-400">
-                  Solutions
-                </span>{' '}
+                <span className="text-emerald-400">Solutions</span>{' '}
                 That Drive Business Growth
               </h1>
               
-              <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed">
-                Custom software, mobile apps, and web solutions built with expertise and delivered on time. We transform ambitious ideas into high-performance digital products.
+              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                Transform your vision into reality with custom software development. We specialize in building scalable web applications, mobile apps, and enterprise solutions that deliver measurable results. From MVP to market leader, we're your technology partner at every stage of growth.
+              </p>
+
+              <p className="text-base text-gray-500 mb-10 leading-relaxed">
+                Our team combines technical expertise with business acumen to create solutions that don't just work—they excel. We handle everything from architecture design to deployment, ensuring your product is built right the first time.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-16">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
                   to="/work"
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-lg transition-all duration-300"
                 >
                   View Our Work
                 </Link>
               </div>
-
-              {/* Tech Stack */}
-              <div>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">Trusted Tech</p>
-                <div className="flex flex-wrap gap-3">
-                  {techStack.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1.5 bg-gray-900/80 backdrop-blur-sm text-gray-400 text-sm font-medium rounded border border-gray-800 hover:border-emerald-500/30 transition-colors duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Stats */}
-            <div className="lg:col-span-5 space-y-10">
-              {stats.map((stat, index) => (
-                <div key={index} className="group">
-                  <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-emerald-400 mb-3 tracking-tight">{stat.value}</div>
-                  <div className="text-base md:text-lg text-gray-500">{stat.label}</div>
-                  {index < stats.length - 1 && (
-                    <div className="h-px bg-gradient-to-r from-gray-800 to-transparent mt-10"></div>
-                  )}
-                </div>
-              ))}
             </div>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-emerald-400/50 rounded-full flex justify-center p-2">
-            <div className="w-1 h-3 bg-emerald-400 rounded-full"></div>
+          {/* Stats Row Below Hero */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-gray-800">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl md:text-6xl font-bold text-emerald-400 mb-2">{stat.value}</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
