@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -64,51 +64,57 @@ ${formData.message}
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-black dark:bg-gray-950">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <section className="py-16 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Let's Build Something Great Together
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              Let's Start Your <span className="text-emerald-400">Digital Journey</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Got a project in mind? Let's have a proper chat. No sales pitch, no pressure — just an honest conversation about what you need and how we can help.
+            <p className="text-lg text-gray-400">
+              Ready to build your vision? Reach out for a free consultation and let's craft something extraordinary together.
             </p>
+            <div className="inline-flex items-center mt-6 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+              <span className="text-emerald-400 text-sm font-medium">INQUIRY PHASE 01</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Contact Form */}
-            <div>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 border-2 border-gray-200 dark:border-gray-700">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                  Send Us a Message
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                      placeholder="John Doe"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="lg:col-span-3">
+              <div className="bg-gray-900 border border-gray-800 rounded-lg p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <MessageSquare className="w-5 h-5 text-emerald-400" />
+                  <h2 className="text-2xl font-bold text-white">
+                    Project Details
+                  </h2>
+                </div>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                        Email *
+                      <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2.5 bg-black border border-gray-800 rounded-lg focus:border-emerald-500 focus:outline-none text-white placeholder-gray-600 transition-colors duration-300"
+                        placeholder="John Doe"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
+                        Email Address
                       </label>
                       <input
                         type="email"
@@ -116,82 +122,56 @@ ${formData.message}
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
+                        className="w-full px-4 py-2.5 bg-black border border-gray-800 rounded-lg focus:border-emerald-500 focus:outline-none text-white placeholder-gray-600 transition-colors duration-300"
                         placeholder="john@example.com"
                       />
                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
+                        Project Type
+                      </label>
+                      <select
+                        name="projectType"
+                        required
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2.5 bg-black border border-gray-800 rounded-lg focus:border-emerald-500 focus:outline-none text-white transition-colors duration-300"
+                      >
+                        <option value="">Select Type</option>
+                        {projectTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                        Phone
+                      <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
+                        Budget Range
                       </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
+                      <select
+                        name="budget"
+                        value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                        placeholder="+91 98765 43210"
-                      />
+                        className="w-full px-4 py-2.5 bg-black border border-gray-800 rounded-lg focus:border-emerald-500 focus:outline-none text-white transition-colors duration-300"
+                      >
+                        <option value="">Select Range</option>
+                        {budgetRanges.map((range) => (
+                          <option key={range} value={range}>
+                            {range}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Company / Organization
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                      placeholder="Your Company Name"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Project Type *
-                    </label>
-                    <select
-                      name="projectType"
-                      required
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                    >
-                      <option value="">Select a project type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Budget Range
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                    >
-                      <option value="">Select a budget range</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range}>
-                          {range}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                      Tell us about your project *
+                    <label className="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-2">
+                      Message
                     </label>
                     <textarea
                       name="message"
@@ -199,127 +179,101 @@ ${formData.message}
                       value={formData.message}
                       onChange={handleChange}
                       rows="5"
-                      className="w-full px-4 py-3 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-emerald-500 dark:focus:border-emerald-500 focus:outline-none text-gray-900 dark:text-white transition-colors duration-300"
-                      placeholder="What problem are you trying to solve? What are your goals?"
+                      className="w-full px-4 py-2.5 bg-black border border-gray-800 rounded-lg focus:border-emerald-500 focus:outline-none text-white placeholder-gray-600 transition-colors duration-300"
+                      placeholder="Tell us about your project vision..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    className="w-full flex items-center justify-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300"
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message via WhatsApp
+                    Send Message
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </button>
-
-                  <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                    By submitting, you'll be redirected to WhatsApp to complete your inquiry.
-                  </p>
                 </form>
               </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                  Get in Touch
-                </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                  Prefer a direct chat? Reach out to us via WhatsApp, email, or phone. We typically respond within a few hours during business days.
-                </p>
-              </div>
-
-              {/* Contact Methods */}
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MessageSquare className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            {/* Contact Info & WhatsApp */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Contact Information */}
+              <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-6">Contact Information</h3>
+                
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-400 mb-1">OUR STUDIO</p>
+                      <p className="text-white text-sm">123 Innovation Drive, Tech District</p>
+                      <p className="text-white text-sm">San Francisco, CA 94103</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      WhatsApp
-                    </h3>
-                    <a
-                      href="https://wa.me/917816087488"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline"
-                    >
-                      +91 78160 87488
-                    </a>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      Fastest way to reach us
-                    </p>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-400 mb-1">EMAIL US</p>
+                      <a href="mailto:hello@buildyourvision.com" className="text-white hover:text-emerald-400 transition-colors">
+                        hello@buildyourvision.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-400 mb-1">CALL US</p>
+                      <a href="tel:+15555551234" className="text-white hover:text-emerald-400 transition-colors">
+                        +1 (555) 012-3456
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      Email
-                    </h3>
-                    <a
-                      href="mailto:info@buildyourvision.com"
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline"
-                    >
-                      info@buildyourvision.com
+                <div className="mt-6 pt-6 border-t border-gray-800">
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">FOLLOW OUR JOURNEY</p>
+                  <div className="flex gap-3">
+                    <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors">
+                      <span className="text-white text-sm">in</span>
                     </a>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      For detailed inquiries
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      Phone
-                    </h3>
-                    <a
-                      href="tel:+917816087488"
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline"
-                    >
-                      +91 78160 87488
+                    <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors">
+                      <span className="text-white text-sm">𝕏</span>
                     </a>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      Mon-Fri, 10 AM - 6 PM IST
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                      Location
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      India
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      Remote-first team
-                    </p>
+                    <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors">
+                      <span className="text-white text-sm">ig</span>
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Quick Response Info */}
-              <div className="p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 rounded-xl border border-emerald-200 dark:border-emerald-800">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  🚀 Quick Response Guarantee
-                </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  We typically respond to all inquiries within 2-4 hours during business days. For urgent projects, WhatsApp is your best bet!
+              {/* WhatsApp Section */}
+              <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border border-emerald-500/20 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-white mb-2">Need Instant Answers?</h3>
+                <p className="text-sm text-gray-400 mb-4">
+                  Chat directly with our design consultants on WhatsApp for immediate assistance
                 </p>
+                <a
+                  href="https://wa.me/917816087488"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-5 py-2.5 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300"
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Chat on WhatsApp
+                </a>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="bg-gray-900 border border-gray-800 rounded-lg p-4 h-48 flex items-center justify-center">
+                <MapPin className="w-12 h-12 text-gray-700" />
               </div>
             </div>
           </div>
@@ -327,38 +281,67 @@ ${formData.message}
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50 dark:bg-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            Before You Reach Out
+      <section className="py-16 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+            Common Questions
           </h2>
-          <div className="space-y-6">
-            <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                What happens after I contact you?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                We'll schedule a 30-minute discovery call to understand your needs. No sales pitch — just questions about your business, goals, and budget. If we're a good fit, we'll send a detailed proposal within 48 hours.
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <details className="group bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+              <summary className="flex items-center justify-between p-6 cursor-pointer">
+                <h3 className="text-base font-semibold text-white">
+                  How long does a typical project take?
+                </h3>
+                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
+                  ▼
+                </span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400 text-sm border-t border-gray-800 pt-4">
+                Most core projects range from 8 to 16 weeks depending on complexity. We provide a detailed roadmap during our initial discovery phase to ensure transparency and timely delivery.
+              </div>
+            </details>
 
-            <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Do you work with startups?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Absolutely. We've helped dozens of startups build their MVP and scale. We understand budget constraints and can suggest phased approaches to get you launched faster.
-              </p>
-            </div>
+            <details className="group bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+              <summary className="flex items-center justify-between p-6 cursor-pointer">
+                <h3 className="text-base font-semibold text-white">
+                  What is your design-led approach?
+                </h3>
+                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
+                  ▼
+                </span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400 text-sm border-t border-gray-800 pt-4">
+                We start every project with comprehensive research and wireframing. You'll see Figma designs before we write a single line of code. This ensures alignment and saves time during development.
+              </div>
+            </details>
 
-            <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                What if I don't have a detailed spec?
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                That's fine. Most clients don't. We'll help you figure out exactly what you need through our discovery process. Come with the problem, we'll help define the solution.
-              </p>
-            </div>
+            <details className="group bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+              <summary className="flex items-center justify-between p-6 cursor-pointer">
+                <h3 className="text-base font-semibold text-white">
+                  Do you offer post-launch support?
+                </h3>
+                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
+                  ▼
+                </span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400 text-sm border-t border-gray-800 pt-4">
+                Yes. We offer 30 days of complimentary post-launch support, followed by flexible maintenance packages. We'll monitor performance, fix bugs, and provide ongoing updates as needed.
+              </div>
+            </details>
+
+            <details className="group bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+              <summary className="flex items-center justify-between p-6 cursor-pointer">
+                <h3 className="text-base font-semibold text-white">
+                  How does the consultation process work?
+                </h3>
+                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
+                  ▼
+                </span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400 text-sm border-t border-gray-800 pt-4">
+                After you reach out, we'll schedule a 30-minute discovery call to understand your vision, goals, and budget. Then we'll create a detailed proposal with timeline and pricing. No obligation, no pressure.
+              </div>
+            </details>
           </div>
         </div>
       </section>
