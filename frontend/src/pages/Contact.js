@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, ArrowRight, CheckCircle, Globe, Shield, Clock } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ ${formData.message}
     const encodedMessage = encodeURIComponent(message);
     
     // Redirect to WhatsApp
-    window.open(`https://wa.me/917816087488?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/919398776311?text=${encodedMessage}`, '_blank');
   };
 
   const projectTypes = [
@@ -66,39 +66,38 @@ ${formData.message}
   return (
     <div className="min-h-screen bg-white pt-20 text-slate-900 dark:bg-[#0b0f0f] dark:text-white">
       {/* Hero Section */}
-      <section className="border-b border-gray-200 py-16 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-              Let's Start Your <span className="text-emerald-400">Digital Journey</span>
+      <section className="bg-transparent py-24">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-tighter">
+              Let's Build Your <span className="text-emerald-500">Vision</span>
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Ready to build your vision? Reach out for a free consultation and let's craft something extraordinary together.
+            <p className="text-xl text-gray-600 dark:text-gray-400 font-bold leading-relaxed max-w-2xl mx-auto italic">
+              Ready to take the next step? Reach out for a free consultation and let's craft something scale-ready together.
             </p>
-            <div className="inline-flex items-center mt-6 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-              <span className="text-emerald-400 text-sm font-medium">INQUIRY PHASE 01</span>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <section className="bg-slate-50/50 dark:bg-transparent py-8 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <div className="rounded-lg border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-[#121816]">
-                <div className="flex items-center gap-3 mb-6">
-                  <MessageSquare className="w-5 h-5 text-emerald-400" />
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="rounded-[3rem] border border-gray-200 dark:border-gray-800/50 bg-white dark:bg-gray-900/40 p-12 shadow-2xl shadow-gray-200/60 dark:shadow-none">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="p-3 bg-emerald-500 rounded-xl shadow-lg shadow-emerald-500/20 text-white">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase tracking-tight">
                     Project Details
                   </h2>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      <label className="mb-2 block text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
                         Full Name
                       </label>
                       <input
@@ -107,13 +106,13 @@ ${formData.message}
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-400 transition-colors duration-300 focus:border-emerald-500 focus:outline-none dark:border-gray-700 dark:bg-[#0f1413] dark:text-white dark:placeholder-gray-500"
-                        placeholder="John Doe"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50/50 px-6 py-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:outline-none transition-all dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
+                        placeholder="Enter Name"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      <label className="mb-2 block text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
                         Email Address
                       </label>
                       <input
@@ -122,15 +121,15 @@ ${formData.message}
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-400 transition-colors duration-300 focus:border-emerald-500 focus:outline-none dark:border-gray-700 dark:bg-[#0f1413] dark:text-white dark:placeholder-gray-500"
-                        placeholder="john@example.com"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50/50 px-6 py-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:outline-none transition-all dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
+                        placeholder="Enter Email"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      <label className="mb-2 block text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
                         Project Type
                       </label>
                       <select
@@ -138,7 +137,7 @@ ${formData.message}
                         required
                         value={formData.projectType}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition-colors duration-300 focus:border-emerald-500 focus:outline-none dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
+                        className="w-full rounded-2xl border border-gray-200 bg-gray-50/50 px-6 py-5 text-gray-900 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:outline-none transition-all dark:border-gray-700 dark:bg-[#0f1413] dark:text-white appearance-none cursor-pointer"
                       >
                         <option value="">Select Type</option>
                         {projectTypes.map((type) => (
@@ -150,27 +149,23 @@ ${formData.message}
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                        Budget Range
+                      <label className="mb-2 block text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                        WhatsApp Number
                       </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={formData.phone}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition-colors duration-300 focus:border-emerald-500 focus:outline-none dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
-                      >
-                        <option value="">Select Range</option>
-                        {budgetRanges.map((range) => (
-                          <option key={range} value={range}>
-                            {range}
-                          </option>
-                        ))}
-                      </select>
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50/50 px-6 py-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:outline-none transition-all dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
+                        placeholder="Enter Mobile"
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <label className="mb-2 block text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
                       Message
                     </label>
                     <textarea
@@ -179,101 +174,97 @@ ${formData.message}
                       value={formData.message}
                       onChange={handleChange}
                       rows="5"
-                      className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-400 transition-colors duration-300 focus:border-emerald-500 focus:outline-none dark:border-gray-700 dark:bg-[#0f1413] dark:text-white dark:placeholder-gray-500"
-                      placeholder="Tell us about your project vision..."
+                      className="w-full rounded-xl border border-gray-200 bg-gray-50/50 px-6 py-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:outline-none transition-all dark:border-gray-700 dark:bg-[#0f1413] dark:text-white"
+                      placeholder="Enter Message"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center px-6 py-3 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300"
+                    className="w-full flex items-center justify-center px-10 py-5 bg-emerald-500 hover:bg-emerald-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-emerald-500/30 hover:scale-[1.02] active:scale-95 transition-all group"
                   >
-                    Send Message
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    Send to WhatsApp
+                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
                   </button>
                 </form>
               </div>
             </div>
 
             {/* Contact Info & WhatsApp */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
               {/* Contact Information */}
-              <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-[#121816]">
-                <h3 className="mb-6 text-lg font-bold text-gray-900 dark:text-white">Contact Information</h3>
+              <div className="rounded-[2.5rem] border border-gray-200 dark:border-gray-800/50 bg-white dark:bg-gray-900/40 p-10 shadow-xl shadow-gray-200/50 dark:shadow-none">
+                <h3 className="mb-8 text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Direct Contact</h3>
                 
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-emerald-400" />
+                <div className="space-y-6">
+                  <div className="flex items-start gap-5 group">
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                      <Mail className="w-6 h-6 text-emerald-600 dark:text-emerald-400 group-hover:text-white" />
                     </div>
                     <div>
-                      <p className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">OUR STUDIO</p>
-                      <p className="text-sm text-gray-900 dark:text-white">123 Innovation Drive, Tech District</p>
-                      <p className="text-sm text-gray-900 dark:text-white">San Francisco, CA 94103</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">EMAIL US</p>
-                      <a href="mailto:hello@buildyourvision.com" className="text-gray-900 transition-colors hover:text-emerald-400 dark:text-white">
-                        hello@buildyourvision.com
+                      <p className="mb-1 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest">EMAIL US</p>
+                      <a href="mailto:Builyourvision@gmail.com" className="text-lg font-bold text-gray-900 dark:text-white hover:text-emerald-500 transition-colors">
+                        Builyourvision@gmail.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-emerald-400" />
+                  <div className="flex items-start gap-5 group">
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                      <Phone className="w-6 h-6 text-emerald-600 dark:text-emerald-400 group-hover:text-white" />
                     </div>
                     <div>
-                      <p className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">CALL US</p>
-                      <a href="tel:+15555551234" className="text-gray-900 transition-colors hover:text-emerald-400 dark:text-white">
-                        +1 (555) 012-3456
+                      <p className="mb-1 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest">WHATSAPP / CALL</p>
+                      <a href="tel:+919398776311" className="text-lg font-bold text-gray-900 dark:text-white hover:text-emerald-500 transition-colors">
+                        +91 93987 76311
                       </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-5 group">
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                      <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400 group-hover:text-white" />
+                    </div>
+                    <div>
+                      <p className="mb-1 text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest">OFFICE ADDRESS</p>
+                      <address className="not-italic text-sm font-bold text-gray-900 dark:text-white">
+                        171 Mahindra Luxuria, Pocharam, Sagareddy, Telangana - 502293
+                      </address>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-800">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">FOLLOW OUR JOURNEY</p>
-                  <div className="flex gap-3">
-                    <a href="#" className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
-                      <span className="text-sm text-gray-900 dark:text-white">in</span>
-                    </a>
-                    <a href="#" className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
-                      <span className="text-sm text-gray-900 dark:text-white">𝕏</span>
-                    </a>
-                    <a href="#" className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700">
-                      <span className="text-sm text-gray-900 dark:text-white">ig</span>
-                    </a>
+                <div className="mt-10 pt-10 border-t border-gray-100 dark:border-gray-800/50">
+                  <p className="text-[10px] font-black text-gray-400 dark:text-gray-500 tracking-widest mb-4 uppercase">Operational Excellence</p>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm font-bold text-gray-600 dark:text-gray-400">
+                      <Shield className="w-4 h-4 text-emerald-500" /> Fixed Price Guarantee
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-bold text-gray-600 dark:text-gray-400">
+                      <Clock className="w-4 h-4 text-emerald-500" /> On-Time Delivery
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-bold text-gray-600 dark:text-gray-400">
+                      <Globe className="w-4 h-4 text-emerald-500" /> Global Scale Readiness
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* WhatsApp Section */}
-              <div className="rounded-lg border border-emerald-200 bg-white p-6 dark:border-emerald-900/40 dark:bg-[#121816]">
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">Need Instant Answers?</h3>
-                <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                  Chat directly with our design consultants on WhatsApp for immediate assistance
+              <div className="rounded-[2.5rem] border border-emerald-200 dark:border-emerald-900/40 bg-white dark:bg-emerald-500/5 p-10 shadow-xl shadow-emerald-500/5 dark:shadow-none hover:border-emerald-500 transition-all">
+                <h3 className="mb-2 text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">Need Instant Answers?</h3>
+                <p className="mb-6 text-gray-600 dark:text-gray-400 font-medium">
+                  Chat directly with our founder **Harsha Reddy** on WhatsApp for immediate project scoping.
                 </p>
                 <a
-                  href="https://wa.me/917816087488"
+                  href="https://wa.me/919398776311"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-5 py-2.5 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-black uppercase tracking-widest rounded-2xl shadow-lg shadow-emerald-500/20 hover:scale-105 transition-all"
                 >
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Chat on WhatsApp
+                  <MessageSquare className="w-5 h-5" />
+                  Chat Now
                 </a>
-              </div>
-
-              {/* Map Placeholder */}
-              <div className="flex h-48 items-center justify-center rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-[#121816]">
-                <MapPin className="h-12 w-12 text-gray-400 dark:text-gray-700" />
               </div>
             </div>
           </div>
@@ -281,67 +272,48 @@ ${formData.message}
       </section>
 
       {/* FAQ Section */}
-      <section className="border-t border-gray-200 py-16 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
-            Common Questions
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            <details className="group overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-[#121816]">
-              <summary className="flex items-center justify-between p-6 cursor-pointer">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                  How long does a typical project take?
-                </h3>
-                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
-                  ▼
-                </span>
-              </summary>
-              <div className="border-t border-gray-200 px-6 pb-6 pt-4 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-400">
-                Most core projects range from 8 to 16 weeks depending on complexity. We provide a detailed roadmap during our initial discovery phase to ensure transparency and timely delivery.
-              </div>
-            </details>
-
-            <details className="group overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-[#121816]">
-              <summary className="flex items-center justify-between p-6 cursor-pointer">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                  What is your design-led approach?
-                </h3>
-                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
-                  ▼
-                </span>
-              </summary>
-              <div className="border-t border-gray-200 px-6 pb-6 pt-4 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-400">
-                We start every project with comprehensive research and wireframing. You'll see Figma designs before we write a single line of code. This ensures alignment and saves time during development.
-              </div>
-            </details>
-
-            <details className="group overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-[#121816]">
-              <summary className="flex items-center justify-between p-6 cursor-pointer">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                  Do you offer post-launch support?
-                </h3>
-                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
-                  ▼
-                </span>
-              </summary>
-              <div className="border-t border-gray-200 px-6 pb-6 pt-4 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-400">
-                Yes. We offer 30 days of complimentary post-launch support, followed by flexible maintenance packages. We'll monitor performance, fix bugs, and provide ongoing updates as needed.
-              </div>
-            </details>
-
-            <details className="group overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-[#121816]">
-              <summary className="flex items-center justify-between p-6 cursor-pointer">
-                <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                  How does the consultation process work?
-                </h3>
-                <span className="text-emerald-400 transform group-open:rotate-180 transition-transform">
-                  ▼
-                </span>
-              </summary>
-              <div className="border-t border-gray-200 px-6 pb-6 pt-4 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-400">
-                After you reach out, we'll schedule a 30-minute discovery call to understand your vision, goals, and budget. Then we'll create a detailed proposal with timeline and pricing. No obligation, no pressure.
-              </div>
-            </details>
+      <section className="bg-white dark:bg-transparent py-32 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+             <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white uppercase tracking-tighter">
+                  Common <span className="text-emerald-500 italic">Questions</span>
+                </h2>
+             </div>
+            <div className="space-y-6">
+              {[
+                { 
+                  q: 'How long does a typical project take?', 
+                  a: 'Most core projects range from 8 to 16 weeks depending on complexity. We provide a detailed roadmap during our initial discovery phase to ensure transparency.' 
+                },
+                { 
+                  q: 'What is your design-led approach?', 
+                  a: 'We start every project with comprehensive research and wireframing. You\'ll see Figma designs before we write a single line of code.' 
+                },
+                { 
+                  q: 'Do you offer post-launch support?', 
+                  a: 'Yes. Every project includes a maintenance phase. We monitor performance, fix bugs, and provide ongoing updates to ensure your scale-ready app stays that way.' 
+                },
+                { 
+                  q: 'How does the consultation work?', 
+                  a: 'We start with a 30-minute discovery call to understand your vision. Then we create a fixed-price proposal with timeline and scope. No hidden costs.' 
+                }
+              ].map((faq, i) => (
+                <details key={i} className="group overflow-hidden rounded-[2rem] border border-gray-200 dark:border-gray-800/50 bg-white dark:bg-gray-900/40 shadow-lg shadow-gray-200/50 dark:shadow-none">
+                  <summary className="flex items-center justify-between p-8 cursor-pointer select-none">
+                    <h3 className="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight">
+                      {faq.q}
+                    </h3>
+                    <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center group-open:rotate-180 transition-transform">
+                      <ArrowRight className="w-5 h-5 rotate-90" />
+                    </div>
+                  </summary>
+                  <div className="border-t border-gray-100 dark:border-gray-800/50 px-8 pb-8 pt-6 text-lg text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>

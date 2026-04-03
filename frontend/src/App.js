@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Process from './pages/Process';
@@ -16,6 +17,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen bg-white text-slate-900 dark:bg-[#0b0f0f] dark:text-white transition-colors duration-300">
           <Header />
           <Routes>
@@ -24,7 +26,7 @@ function App() {
             <Route path="/process" element={<Process />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/why-us" element={<WhyUs />} />
-            <Route path="/work" element={<Work />} />
+            <Route path="/portfolio" element={<Work />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />

@@ -1,5 +1,6 @@
 import React from 'react';
-import { CheckCircle, Users, Zap, TrendingUp, Award, Clock, DollarSign, Heart } from 'lucide-react';
+import { CheckCircle, Users, Zap, TrendingUp, Award, Clock, DollarSign, Heart, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const WhyUs = () => {
   const mainReasons = [
@@ -53,22 +54,22 @@ const WhyUs = () => {
     {
       icon: Award,
       title: 'Quality Code',
-      description: 'Clean, maintainable code that other developers can actually work with. Not spaghetti that only we understand.'
+      description: 'Clean, maintainable code that other developers can actually work with.'
     },
     {
       icon: Clock,
       title: 'Real-Time Updates',
-      description: 'Staging site access from week one. See progress as it happens, not in a big reveal that falls flat.'
+      description: 'Staging site access from week one. See progress as it happens.'
     },
     {
       icon: DollarSign,
       title: 'No Lock-In',
-      description: 'You own everything. Code, designs, documentation. If you want to take it elsewhere later, you can.'
+      description: 'You own everything. Code, designs, documentation. Zero proprietary lock-in.'
     },
     {
       icon: Heart,
-      title: 'We Care About Results',
-      description: "We don't just deliver features. We deliver solutions that move your business metrics in the right direction."
+      title: 'We Care',
+      description: "We don't just deliver features. We deliver solutions that move your metrics."
     }
   ];
 
@@ -102,41 +103,41 @@ const WhyUs = () => {
   return (
     <div className="min-h-screen bg-white pt-20 text-slate-900 dark:bg-[#0b0f0f] dark:text-white">
       {/* Hero Section */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-transparent py-24">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Why Partner with Build Your Vision
+            <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-tighter">
+              Why <span className="text-emerald-500">Pick Us?</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              We're not your typical agency. And that's the point. No fluff, no buzzwords, no over-promising. Just honest work, honest communication, and honest results.
+            <p className="text-xl text-gray-600 dark:text-gray-400 font-bold max-w-2xl mx-auto leading-relaxed italic">
+              We're not your typical agency. And that's the point. No fluff, no buzzwords. Just results.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Reasons */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Main Reasons Grid */}
+      <section className="bg-slate-50/50 dark:bg-transparent py-8 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {mainReasons.map((reason, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-300 hover:shadow-xl"
+                className="p-12 bg-white dark:bg-gray-900/40 rounded-[3rem] border border-gray-200 dark:border-gray-800/50 shadow-xl shadow-gray-200/60 dark:shadow-none hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6">
-                  <reason.icon className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+                <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                  <reason.icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight">
                   {reason.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-lg text-gray-700 dark:text-gray-400 mb-8 font-medium leading-relaxed">
                   {reason.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-4 pt-8 border-t border-gray-100 dark:border-gray-800/50">
                   {reason.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                      <CheckCircle className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0" />
+                    <li key={idx} className="flex items-center text-gray-800 dark:text-gray-300 font-bold tracking-tight">
+                      <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
                       {detail}
                     </li>
                   ))}
@@ -147,62 +148,32 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Additional Benefits */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            More Reasons to Work With Us
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {additionalBenefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="p-6 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Us vs Them Comparison */}
-      <section className="bg-transparent py-20">
+      {/* Comparison Section */}
+      <section className="bg-white dark:bg-transparent py-16 border-t border-gray-100 dark:border-gray-800/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-            Us vs. The Rest
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-16 text-center uppercase tracking-tighter">
+            Us vs. <span className="text-emerald-500 italic">Them</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center">
-            Not all development agencies are created equal. Here's how we're different.
-          </p>
 
           <div className="space-y-4">
             {comparisonPoints.map((point, index) => (
               <div
                 key={index}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-white dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800/50 rounded-[2rem] shadow-lg shadow-gray-200/50 dark:shadow-none hover:border-emerald-500/30 transition-all"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <div className="flex items-center space-x-4">
+                  <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-500/20">
+                    <CheckCircle className="w-6 h-6 text-white" />
                   </div>
-                  <span className="font-semibold text-gray-900 dark:text-white">
+                  <span className="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight">
                     {point.us}
                   </span>
                 </div>
-                <div className="flex items-center space-x-3 opacity-50">
-                  <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-gray-600 dark:text-gray-400">✗</span>
+                <div className="flex items-center space-x-4 opacity-50 grayscale">
+                  <div className="w-10 h-10 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-6 h-6 text-gray-400" />
                   </div>
-                  <span className="text-gray-600 dark:text-gray-400">
+                  <span className="text-lg font-bold text-gray-500 dark:text-gray-400 line-through decoration-emerald-500/50">
                     {point.them}
                   </span>
                 </div>
@@ -212,35 +183,46 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Testimonial Quote */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mb-6">
-            "Finally, a development team that says what they'll do and actually does it. No drama, no excuses, just results."
-          </blockquote>
-          <cite className="text-lg text-gray-600 dark:text-gray-400">
-            — Rajesh Kumar, CEO at TechStart Solutions
-          </cite>
+      {/* Benefits Boxes */}
+      <section className="bg-slate-50/50 dark:bg-transparent py-16">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {additionalBenefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="p-10 bg-white dark:bg-gray-900/40 rounded-[2.5rem] border border-gray-200 dark:border-gray-800/50 shadow-xl shadow-gray-200/50 dark:shadow-none hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                  <benefit.icon className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-black text-gray-900 dark:text-white mb-3 uppercase tracking-tight">
+                  {benefit.title}
+                </h3>
+                <p className="text-sm text-gray-700 dark:text-gray-400 font-bold leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Ready to Work With a Team That Gets It?
+      {/* CTA Section */}
+      <section className="bg-white dark:bg-transparent py-16 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-gray-50/50 dark:bg-emerald-500/5 rounded-[4rem] p-20 border border-gray-200 dark:border-emerald-500/20 shadow-2xl shadow-gray-200/50 dark:shadow-none">
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-tighter">
+            Choose <span className="text-emerald-500 italic">Vision.</span> Choose Growth.
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-10">
-            Let's have a no-pressure conversation about your project.
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto font-black uppercase tracking-[0.2em]">
+            Ready for a development partner that actually delivers?
           </p>
-          <a
-            href="https://wa.me/917816087488"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-12 py-6 bg-emerald-500 hover:bg-emerald-600 text-white font-black uppercase tracking-widest rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.5)] group"
           >
-            Get Free Consultation
-          </a>
+            Start Your Partnership
+            <ArrowRight className="ml-3 w-7 h-7 group-hover:translate-x-2 transition-transform" />
+          </Link>
         </div>
       </section>
     </div>

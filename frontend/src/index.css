@@ -46,6 +46,7 @@ code {
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
+
     .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
@@ -78,6 +79,7 @@ code {
     * {
         @apply border-border;
     }
+
     body {
         @apply bg-background text-foreground;
     }
@@ -139,5 +141,22 @@ img {
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+
+    .diagonal-split {
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    }
+
+    select.appearance-none {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1.5rem center;
+        background-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .diagonal-split {
+        clip-path: none !important;
     }
 }

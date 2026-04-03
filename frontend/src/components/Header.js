@@ -37,11 +37,11 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/process' },
     { name: 'Services', path: '/services' },
-    { name: 'Our Process', path: '/process' },
     { name: 'Industries', path: '/industries' },
     { name: 'Why Choose Us', path: '/why-us' },
-    { name: 'Recent Work', path: '/work' },
+    { name: 'Our Portfolio', path: '/portfolio' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -53,24 +53,24 @@ const Header = () => {
 
   const ActiveThemeIcon = themeOptions.find((option) => option.value === themeMode)?.icon || Monitor;
   const isHomePage = location.pathname === '/';
-  const headerBackgroundClass = isScrolled || !isHomePage
-    ? 'bg-neutral-950/90 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.08)]'
+  const headerBackgroundClass = isScrolled
+    ? 'bg-white/90 dark:bg-[#0b0f0f]/90 backdrop-blur-md shadow-[0_20px_40px_-15px_rgba(16,185,129,0.08)]'
     : 'bg-transparent';
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBackgroundClass}`}>
-      <div className="max-w-full px-6 md:px-10">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between py-5">
-          <Link to="/" className="flex items-center gap-3 text-white">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400 font-headline text-2xl font-black tracking-tighter text-white uppercase">
+          <Link to="/" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400 font-headline text-2xl font-black tracking-tighter text-white uppercase shadow-lg shadow-emerald-400/20">
               BYV
             </span>
-            <span className="font-headline text-2xl font-bold tracking-tight text-white">
+            <span className="font-headline text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
               Build Your Vision
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-2 rounded-full bg-black/20 px-3 py-2 backdrop-blur-md xl:gap-3">
+          <nav className="hidden lg:flex items-center gap-2 rounded-full bg-slate-100 dark:bg-black/20 px-3 py-2 backdrop-blur-md xl:gap-3 border border-slate-200 dark:border-white/5">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
 
@@ -81,7 +81,7 @@ const Header = () => {
                   className={`font-headline rounded-full px-3 py-2 text-sm font-bold tracking-tight transition-all duration-300 ${
                     isActive
                       ? 'bg-emerald-300 text-black shadow-[0_10px_25px_-10px_rgba(110,231,183,0.9)]'
-                      : 'text-white hover:bg-white/10 hover:text-emerald-100'
+                      : 'text-slate-600 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 hover:text-emerald-600 dark:hover:text-emerald-100'
                   }`}
                 >
                   {link.name}
@@ -94,14 +94,14 @@ const Header = () => {
             <div className="relative" ref={themeMenuRef}>
               <button
                 onClick={() => setIsThemeMenuOpen((open) => !open)}
-                className="rounded-xl bg-slate-700/60 p-3 text-white transition-all duration-300 hover:bg-slate-600"
+                className="rounded-xl bg-slate-100 dark:bg-slate-800 p-3 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:bg-slate-200 dark:hover:bg-slate-700 shadow-sm"
                 aria-label="Change theme"
               >
                 <ActiveThemeIcon className="h-5 w-5" />
               </button>
 
               {isThemeMenuOpen && (
-                <div className="absolute right-0 mt-3 w-40 rounded-2xl border border-neutral-800 bg-neutral-950 p-2 shadow-2xl">
+                <div className="absolute right-0 mt-3 w-40 rounded-2xl border border-gray-200 dark:border-gray-800/50 bg-white dark:bg-[#0b0f0f] p-2 shadow-2xl">
                   {themeOptions.map((option) => {
                     const OptionIcon = option.icon;
                     const isSelected = themeMode === option.value;
@@ -138,7 +138,7 @@ const Header = () => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden rounded-lg bg-neutral-900 p-2 text-white transition-colors hover:bg-neutral-800"
+            className="lg:hidden rounded-xl bg-slate-100 dark:bg-neutral-900 p-2.5 text-slate-900 dark:text-white transition-colors hover:bg-slate-200 dark:hover:bg-neutral-800 border border-slate-200 dark:border-transparent"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -146,21 +146,21 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="border-t border-neutral-800 py-4 lg:hidden">
+          <div className="border-t border-slate-100 dark:border-neutral-800 py-6 lg:hidden">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`font-headline text-base font-bold transition-colors ${
-                    location.pathname === link.path ? 'text-emerald-400' : 'text-neutral-300 hover:text-white'
+                  className={`font-headline text-lg font-bold transition-all ${
+                    location.pathname === link.path ? 'text-emerald-500 underline underline-offset-8 decoration-2' : 'text-slate-500 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-white'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="grid grid-cols-3 gap-2 rounded-xl bg-neutral-900 p-2">
+              <div className="grid grid-cols-3 gap-2 rounded-2xl bg-slate-100 dark:bg-neutral-900 p-2 border border-slate-200 dark:border-transparent">
                 {themeOptions.map((option) => {
                   const OptionIcon = option.icon;
                   const isSelected = themeMode === option.value;
@@ -169,10 +169,10 @@ const Header = () => {
                     <button
                       key={option.value}
                       onClick={() => setTheme(option.value)}
-                      className={`flex items-center justify-center gap-2 rounded-lg px-3 py-2 font-headline text-sm font-bold transition-colors ${
+                      className={`flex items-center justify-center gap-2 rounded-xl px-3 py-2.5 font-headline text-xs font-black uppercase tracking-widest transition-all ${
                         isSelected
-                          ? 'bg-emerald-400 text-black'
-                          : 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
+                          ? 'bg-emerald-400 text-white shadow-lg shadow-emerald-400/20'
+                          : 'text-slate-500 dark:text-neutral-400 hover:bg-slate-200 dark:hover:bg-neutral-800'
                       }`}
                     >
                       <OptionIcon className="h-4 w-4" />

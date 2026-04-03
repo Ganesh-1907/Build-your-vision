@@ -1,8 +1,9 @@
 import React from 'react';
 import { 
   ShoppingCart, Heart, Stethoscope, GraduationCap, 
-  Plane, Building, Film, Dumbbell, Smartphone, Briefcase 
+  Plane, Building, Film, Dumbbell, Smartphone, Briefcase, Globe, ArrowRight, Shield
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Industries = () => {
   const industries = [
@@ -71,49 +72,49 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-white pt-20 text-slate-900 dark:bg-[#0b0f0f] dark:text-white">
       {/* Hero Section */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-transparent py-24">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              We've Probably Worked in Your Industry
+            <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-tighter">
+              Industry <span className="text-emerald-500">Expertise</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Every sector has its quirks. We've learned them the hard way so you don't have to. From healthcare to e-commerce, education to entertainment — we've built software that works.
+            <p className="text-xl text-gray-600 dark:text-gray-400 font-bold max-w-2xl mx-auto italic leading-relaxed">
+              Every sector has its quirks. We've learned them the hard way so you don't have to.
             </p>
           </div>
         </div>
       </section>
 
       {/* Industries Grid */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="bg-slate-50/50 dark:bg-transparent py-8 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className="group p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="group p-10 bg-white dark:bg-gray-900/40 rounded-[2.5rem] border border-gray-200 dark:border-gray-800/50 shadow-xl shadow-gray-200/50 dark:shadow-none hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <industry.icon className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+                <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                  <industry.icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400 group-hover:text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4 uppercase tracking-tight">
                   {industry.title}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-gray-700 dark:text-gray-400 mb-8 font-medium leading-relaxed">
                   {industry.description}
                 </p>
 
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                    Common Projects:
+                <div className="pt-6 border-t border-gray-100 dark:border-gray-800/50">
+                  <p className="text-xs font-black text-gray-400 dark:text-gray-500 mb-4 uppercase tracking-widest">
+                    Common Projects
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {industry.projects.map((project, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium rounded-full"
+                        className="px-4 py-1.5 bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest rounded-full border border-gray-100 dark:border-gray-700"
                       >
                         {project}
                       </span>
@@ -127,70 +128,52 @@ const Industries = () => {
       </section>
 
       {/* Industry Expertise Section */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white dark:bg-transparent py-16 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-              Why Industry Experience Matters
+             <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 mb-8">
+                <Shield className="w-5 h-5 text-emerald-500" />
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300">Why Experience Matters</span>
+              </div>
+            <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-16 uppercase tracking-tighter">
+              Domain <span className="text-emerald-500">Knowledge</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  We Know the Regulations
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  HIPAA for healthcare. PCI-DSS for payments. GDPR for data. Age verification for adult content. We build compliance in from day one, not as an afterthought.
-                </p>
-              </div>
-              
-              <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  We Understand the Workflows
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Patient check-ins. Property viewings. Course enrollments. We've seen how these processes work in the real world, not just in theory.
-                </p>
-              </div>
-              
-              <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  We've Made the Mistakes
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  And learned from them. We know which features users actually use and which ones just clutter the interface. Experience counts.
-                </p>
-              </div>
-              
-              <div className="p-6 bg-white dark:bg-gray-900 rounded-xl">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  We Ask Better Questions
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  When we've built five booking systems, we know what to ask about your sixth. Less discovery time means faster delivery.
-                </p>
-              </div>
+              {[
+                { title: 'Compliance & Regulations', text: 'HIPAA for healthcare. PCI-DSS for payments. age verification. We build compliance in from day one.', icon: Shield },
+                { title: 'Workflow Understanding', text: 'Patient check-ins. Property viewings. Course enrollments. We\'ve seen how these work in the real world.', icon: Globe },
+                { title: 'Proven Methodology', text: 'We know which features users actually use and which ones just clutter the interface. Less noise, more growth.', icon: Smartphone },
+                { title: 'Faster Discovery', text: 'When we\'ve built multiple systems in your sector, we know exactly what to ask. Faster delivery for you.', icon: Briefcase }
+              ].map((item, idx) => (
+                <div key={idx} className="p-10 bg-white dark:bg-gray-900/40 rounded-[2.5rem] border border-gray-200 dark:border-gray-800/50 shadow-xl shadow-gray-200/50 dark:shadow-none hover:shadow-2xl transition-all duration-300">
+                  <h3 className="text-xl font-black text-gray-900 dark:text-white mb-4 uppercase flex items-center gap-3">
+                    <item.icon className="w-6 h-6 text-emerald-500" />
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-400 font-bold tracking-tight">{item.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-transparent py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Don't See Your Industry?
+      <section className="bg-slate-50/50 dark:bg-transparent py-16 border-t border-gray-100 dark:border-gray-800/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white dark:bg-emerald-500/5 rounded-[4rem] p-20 border border-gray-200 dark:border-emerald-500/20 shadow-2xl shadow-gray-200/50 dark:shadow-none">
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-8 uppercase tracking-tighter">
+            Don't See Your <span className="text-emerald-500 italic">Sector?</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-10">
-            We're always ready to learn. If we haven't worked in your specific sector, we'll do the research and ask the right questions. Let's chat.
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto font-black uppercase tracking-[0.2em]">
+            We're always ready to learn. Let's discuss your unique requirements.
           </p>
-          <a
-            href="https://wa.me/917816087488"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-12 py-6 bg-emerald-500 hover:bg-emerald-600 text-white font-black uppercase tracking-widest rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.5)] group"
           >
             Discuss Your Project
-          </a>
+            <ArrowRight className="ml-3 w-7 h-7 group-hover:translate-x-2 transition-transform" />
+          </Link>
         </div>
       </section>
     </div>
