@@ -100,14 +100,34 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-black dark:bg-gray-950 overflow-hidden">
-        {/* Subtle Background Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent"></div>
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen w-full flex items-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072)',
+            }}
+          ></div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/80"></div>
+          
+          {/* Animated Grid Overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'linear-gradient(rgba(16, 185, 129, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.3) 1px, transparent 1px)',
+              backgroundSize: '100px 100px',
+            }}></div>
+          </div>
+
+          {/* Gradient Accent */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent"></div>
+        </div>
         
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Content - Full Width */}
+        <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
               {/* Badge */}
@@ -116,7 +136,7 @@ const Home = () => {
                 <span className="text-emerald-400 text-xs font-medium tracking-wide uppercase">Available for New Projects</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight">
                 We Build Digital{' '}
                 <span className="text-emerald-400">
                   Solutions
@@ -132,7 +152,7 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-16">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-3.5 bg-emerald-400 hover:bg-emerald-500 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Start Your Project
                 </Link>
@@ -151,7 +171,7 @@ const Home = () => {
                   {techStack.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1.5 bg-gray-900 text-gray-400 text-sm font-medium rounded border border-gray-800 hover:border-emerald-500/30 transition-colors duration-300"
+                      className="px-3 py-1.5 bg-gray-900/80 backdrop-blur-sm text-gray-400 text-sm font-medium rounded border border-gray-800 hover:border-emerald-500/30 transition-colors duration-300"
                     >
                       {tech}
                     </span>
@@ -161,17 +181,24 @@ const Home = () => {
             </div>
 
             {/* Right Stats */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-10">
               {stats.map((stat, index) => (
                 <div key={index} className="group">
-                  <div className="text-5xl md:text-6xl font-bold text-emerald-400 mb-2 tracking-tight">{stat.value}</div>
-                  <div className="text-base text-gray-500">{stat.label}</div>
+                  <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-emerald-400 mb-3 tracking-tight">{stat.value}</div>
+                  <div className="text-base md:text-lg text-gray-500">{stat.label}</div>
                   {index < stats.length - 1 && (
-                    <div className="h-px bg-gradient-to-r from-gray-800 to-transparent mt-8"></div>
+                    <div className="h-px bg-gradient-to-r from-gray-800 to-transparent mt-10"></div>
                   )}
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-emerald-400/50 rounded-full flex justify-center p-2">
+            <div className="w-1 h-3 bg-emerald-400 rounded-full"></div>
           </div>
         </div>
       </section>
