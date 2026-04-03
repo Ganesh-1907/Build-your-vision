@@ -45,6 +45,8 @@ code {
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
+        --primary-hsl: 161 94% 30%;
+        /* Default emerald-500 */
     }
 
     .dark {

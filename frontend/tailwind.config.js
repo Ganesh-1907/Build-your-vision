@@ -52,7 +52,20 @@ module.exports = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+        emerald: {
+          50: 'color-mix(in srgb, hsl(var(--primary-hsl)), white 90%)',
+          100: 'color-mix(in srgb, hsl(var(--primary-hsl)), white 80%)',
+          200: 'color-mix(in srgb, hsl(var(--primary-hsl)), white 60%)',
+          300: 'color-mix(in srgb, hsl(var(--primary-hsl)), white 40%)',
+          400: 'color-mix(in srgb, hsl(var(--primary-hsl)), white 20%)',
+          500: 'hsl(var(--primary-hsl))',
+          600: 'color-mix(in srgb, hsl(var(--primary-hsl)), black 10%)',
+          700: 'color-mix(in srgb, hsl(var(--primary-hsl)), black 20%)',
+          800: 'color-mix(in srgb, hsl(var(--primary-hsl)), black 30%)',
+          900: 'color-mix(in srgb, hsl(var(--primary-hsl)), black 40%)',
+          950: 'color-mix(in srgb, hsl(var(--primary-hsl)), black 60%)',
+        }
   		},
   		keyframes: {
   			'accordion-down': {

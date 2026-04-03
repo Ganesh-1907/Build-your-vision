@@ -15,11 +15,16 @@ export const ThemeProvider = ({ children }) => {
     return localStorage.getItem('theme-mode') || 'system';
   });
 
+  const [accentColor, setAccentColor] = useState(() => {
+    return localStorage.getItem('accent-color') || '161 94% 30%'; // Default emerald-500
+  });
+
   const [actualTheme, setActualTheme] = useState('dark');
 
   useEffect(() => {
     const root = document.documentElement;
     
+    // Apply Theme (Dark/Light)
     const applyTheme = (theme) => {
       if (theme === 'dark') {
         root.classList.add('dark');
@@ -42,13 +47,24 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [themeMode]);
 
+  useEffect(() => {
+    // Apply Accent Color
+    const root = document.documentElement;
+    root.style.setProperty('--primary-hsl', accentColor);
+    localStorage.setItem('accent-color', accentColor);
+  }, [accentColor]);
+
   const setTheme = (mode) => {
     setThemeMode(mode);
     localStorage.setItem('theme-mode', mode);
   };
 
+  const updateAccentColor = (color) => {
+    setAccentColor(color);
+  };
+
   return (
-    <ThemeContext.Provider value={{ themeMode, actualTheme, setTheme }}>
+    <ThemeContext.Provider value={{ themeMode, actualTheme, setTheme, accentColor, updateAccentColor }}>
       {children}
     </ThemeContext.Provider>
   );

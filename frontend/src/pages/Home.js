@@ -92,12 +92,12 @@ const Home = () => {
       <header className="relative overflow-hidden">
         <div className="relative min-h-screen">
           <div className="relative z-10 flex min-h-screen items-center">
-            <div className="diagonal-split flex w-full items-center bg-[#06b77f] px-6 pb-20 pt-32 md:min-h-screen md:w-[65%] md:px-16 lg:px-20 md:pb-24 md:pt-36">
+            <div className="diagonal-split flex w-full items-center bg-emerald-500 px-6 pb-20 pt-32 md:min-h-screen md:w-[65%] md:px-16 lg:px-20 md:pb-24 md:pt-36">
               <div className="max-w-3xl md:ml-12 lg:ml-20">
                 <h1 className="font-headline mb-6 text-5xl font-extrabold leading-[1.02] tracking-tight text-white md:text-7xl uppercase">
                   Transform Your <span className="text-emerald-950">Vision</span> Into Reality
                 </h1>
-                <p className="mb-10 max-w-2xl text-lg font-medium leading-relaxed text-[#d9fff0] md:text-xl">
+                <p className="mb-10 max-w-2xl text-lg font-medium leading-relaxed text-emerald-100 md:text-xl">
                   We specialize in building scalable web applications, mobile apps, and enterprise solutions that deliver measurable results. From MVP to market leader, we're your technology partner at every stage of growth.
                 </p>
                 <div className="flex flex-wrap items-center gap-6">
@@ -120,19 +120,19 @@ const Home = () => {
                 <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-12">
                   <div className="group">
                     <div className="text-4xl font-black text-white group-hover:scale-110 transition-transform origin-left">20+</div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d9fff0] mt-2">Frontend Apps</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-100 mt-2">Frontend Apps</div>
                   </div>
                   <div className="group">
                     <div className="text-4xl font-black text-white group-hover:scale-110 transition-transform origin-left">15+</div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d9fff0] mt-2">Admin Dashboards</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-100 mt-2">Admin Dashboards</div>
                   </div>
                   <div className="group">
                     <div className="text-4xl font-black text-white group-hover:scale-110 transition-transform origin-left">30+</div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d9fff0] mt-2">Backend Servers</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-100 mt-2">Backend Servers</div>
                   </div>
                   <div className="group">
                     <div className="text-4xl font-black text-white group-hover:scale-110 transition-transform origin-left">15+</div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d9fff0] mt-2">Mobile Apps</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-100 mt-2">Mobile Apps</div>
                   </div>
                 </div>
               </div>
