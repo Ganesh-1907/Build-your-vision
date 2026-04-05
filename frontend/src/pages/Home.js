@@ -44,22 +44,25 @@ const Home = () => {
 
   const testimonials = [
     {
-      quote: "BYV transformed our business with a custom CRM that actually works. The team understood our needs and delivered beyond expectations.",
-      author: "Rajesh Kumar",
-      position: "CEO, TechStart Solutions",
-      rating: 5
+      quote: "Build Your Vision exceeded my expectations with their innovative website design, attention to detail, and prompt support. Their team is professional, creative, and truly committed to helping businesses succeed online. I highly recommend their services to anyone looking for a reliable web development",
+      author: "nagarjuna gangadhar",
+      timeAgo: "9 months ago",
+      rating: 5,
+      accent: "bg-pink-500"
     },
     {
-      quote: "Professional, responsive, and delivered on time. Our mobile app has over 50,000 downloads thanks to their excellent work.",
-      author: "Priya Sharma",
-      position: "Founder, FitLife App",
-      rating: 5
+      quote: "Amazing experience working with BYV. At first, I was honestly a bit skeptical about how things would turn out. But I have to say, I was completely impressed by how patient and professional he was throughout the process. He really listened to my feedback, made changes without hesitation, and genuinely wanted to make sure I was 100% happy with the final result. It's rare to find someone who's not only talented but also so easy to work with. Highly recommend.",
+      author: "Nyshway",
+      timeAgo: "9 months ago",
+      rating: 5,
+      accent: "bg-emerald-500"
     },
     {
-      quote: "The best development partner we've worked with. They don't just code – they solve business problems.",
-      author: "Amit Patel",
-      position: "CTO, E-Commerce Pro",
-      rating: 5
+      quote: "Wonderful team and amazing problem solving capabilities. They were always available to answer questions and make changes according to our requirements",
+      author: "Rajeev Gudise",
+      timeAgo: "3 months ago",
+      rating: 5,
+      accent: "bg-orange-500"
     }
   ];
 
@@ -301,7 +304,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-800/10">
+      <section className="py-12 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-800/10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -318,20 +321,25 @@ const Home = () => {
                 key={index}
                 className="p-8 bg-white dark:bg-gray-900/40 rounded-3xl border border-gray-200 dark:border-gray-800/50 shadow-lg shadow-gray-200/50 dark:shadow-none hover:border-emerald-500 transition-all duration-300 hover:shadow-2xl"
               >
-                <div className="flex mb-4">
+                <div className="mb-5 flex items-start gap-4">
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-lg font-bold text-white ${testimonial.accent}`}>
+                    {testimonial.author.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900 dark:text-white">{testimonial.author}</p>
+                  </div>
+                </div>
+                <div className="mb-4 flex items-center gap-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
                       <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                     </svg>
                   ))}
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{testimonial.timeAgo}</span>
                 </div>
-                <p className="text-gray-800 dark:text-gray-300 mb-6 italic font-medium">
-                  "{testimonial.quote}"
+                <p className="text-gray-800 dark:text-gray-300 font-medium leading-relaxed">
+                  {testimonial.quote}
                 </p>
-                <div>
-                  <p className="font-bold text-gray-900 dark:text-white">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-bold">{testimonial.position}</p>
-                </div>
               </div>
             ))}
           </div>
